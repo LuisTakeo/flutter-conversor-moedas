@@ -25,7 +25,12 @@ class _ConversorState extends State<Conversor> {
   late double euro;
 
   void _realChanged(String text) {
-    double real = double.parse(text);
+    double real;
+    if (text.isEmpty)
+      real = 0;
+    else
+      real = double.parse(text);
+    print(real);
     dolarController.text = (real / dolar).toStringAsFixed(2);
     euroController.text = (real / euro).toStringAsFixed(2);
   }
